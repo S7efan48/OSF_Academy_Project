@@ -1,0 +1,26 @@
+<html lang="en">
+<%- include ('./partials/head.ejs') %> 
+  <body>
+    <%- include('./partials/nav.ejs')  %>
+
+    <h2>Subcategories</h2>
+    <% if (subsubcategories != undefined) {%> 
+      <% subsubcategories.forEach(function(subsubcategory){ %>
+        <div class="card">
+          <img src="/images/<%= subsubcategory.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= subsubcategory.name %></h5>
+            <p class="card-text"><%= subsubcategory.page_description %></p>
+            <a href="/products/<%=subsubcategory.id %>" class="btn btn-primary">View products</a>
+          </div>
+        </div>
+        <% })%>
+      <% } else {%>
+          <p>There are no subcategories.</p>
+      <%  }%>  
+
+  </body>
+
+
+  <%- include('./partials/footer.ejs')  %> 
+</html>

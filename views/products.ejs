@@ -1,0 +1,36 @@
+<html lang="en">
+<%- include ('./partials/head.ejs') %> 
+  <body>
+    <%- include('./partials/nav.ejs')  %>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% if (products != undefined) {%> 
+      <% products.forEach(function(product){ %>
+        <div class="col" >
+            <div class="card h-100 mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/images/<%= product.image_groups[0].images[0].link %>" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= product.name %></h5>
+                    <p class="card-text"><%= product.short_description %> </p>
+                    <p class="card-text"><small class="text-muted">Price: <%= product.price %> $</small></p>
+                    <a href="/product-details/<%= product.id %> " class="btn btn-primary">More info</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <% })%>
+    </div>
+      <% } else {%>
+          <p>There are no products.</p>
+      <%  }%>  
+
+
+  </body>
+
+
+  <%- include('./partials/footer.ejs')  %> 
+</html>

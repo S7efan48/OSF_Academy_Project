@@ -1,0 +1,14 @@
+<nav>
+    <div class="site-title">
+      <a href="/">Home</a>
+    </div>
+    <ul>
+      <% if (categories != undefined) {%> 
+        <% categories.forEach(function(category){ %>
+          <li><a href="/category/<%=category.id %>"><%=category.name %></a></li>
+        <% })%>
+      <% } else {%>
+        <p>There are no categories.</p>
+        <%  }%>  
+    </ul>
+  </nav>
